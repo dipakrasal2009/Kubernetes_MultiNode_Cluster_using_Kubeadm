@@ -30,6 +30,15 @@ Vagrant.configure("2") do |config|
       vb.cpus = 1
     end
   end
+
+  config.vm.define "worker2" do |worker2|
+    worker2.vm.hostname = "worker2"
+    worker2.vm.network "private_network", ip: "192.168.56.12"
+    worker2.vm.provider "virtualbox" do |vb|
+      vb.memory = 2048   # 2 GB RAM
+      vb.cpus = 1
+    end
+  end
   # Disable automatic box update checking. If you disable this, then
   # boxes will only be checked for updates when the user runs
   # `vagrant box outdated`. This is not recommended.
